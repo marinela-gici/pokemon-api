@@ -6,8 +6,9 @@ function App() {
   let [pokemon, setPokemon] = useState([])
 
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
-        .then(data => setPokemon(data.data.results))
+   fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
+        .then(response => response.json())
+        .then(data => setPokemon(data.results))
   },[]);
 
   return (
